@@ -28,14 +28,11 @@ The subscription page includes comprehensive client-side JavaScript validation c
 car-dealership-website/
 
 
-├── html/
-# All HTML pages
+├── html/ # All HTML pages
 
-├── css/  
-# Per-page stylesheets
+├── css/  # Per-page stylesheets
 
-└── images/    
-# Car images and logo
+└── images/    # Car images and logo
 
 
 ## Author
