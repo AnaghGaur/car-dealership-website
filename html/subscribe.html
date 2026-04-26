@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../css/subscribe.css" rel="stylesheet">
+</head>
+<body>
+    <header>Pathstrider's Choice</header>
+    <nav>
+        <ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="products.html"><li>Products</li></a>
+            <a href="contact.html"><li>Contact Us</li></a>
+            <a href="subscribe.html"><li>Subscribe</li></a>
+            <a href="faq.html"><li>FAQ</li></a>
+        </ul>
+    </nav>
+    <form onsubmit="return validateForm();" action="https://sit.udst.edu.qa/processform.php" method="POST">
+        <legend>Personal Information</legend>
+        <fieldset>
+            <div>
+                <label for="fname" id="name">Full Name:</label>
+                <input id="fname"  name="Full_name" placeholder="Your full name here" onblur="validateField('fname')"/>
+            </div>
+            <div>
+                <label for="uname" id="name">Username:</label>
+                <input id="uname" name="username" placeholder="Your username here" onblur="validateUser()"/><span id="usererror"></span>
+            </div>
+            <div>
+                <label for="pass" id="passwd">Password:</label>
+                <input id="pass" name="pass" type="password" placeholder="Your password here" onblur="validatePass()"/><span id="passerror"></span>
+            </div>
+            <div>
+                <label for="passconf" id="passwd2">Confirm Password:</label>
+                <input id="passconf" name='passconfirm' type="password" placeholder="Confirm your Password" onblur="validatePassC()"/><span id="passcerror"></span>
+            </div>
+            <div class="form_div">
+                <label for="mail" id="email">Email:</label>
+                <input id="mail" name="mail" placeholder="Your mail here" onblur="validateEmail()"/> <span id="emailerror"></span>
+            </div>
+            <div class="form_div">
+                <label for="mailc" id="emailconf">Email confirmation:</label>
+                <input id="mailc" name="mail" placeholder="Confirm here" onblur="validateEmailC()"/> <span id="emailcerror"></span>
+            </div>
+            <div id="phoneno">
+                <label for="mobile" id="phone">Mobile Number:</label>
+                <input id="mobilestart" name="mobile" type="text" value="+974"/><input id="mobile" type="text" onblur="validateField('mobile'); isNumber()" /><span id="merror"></span>
+            </div>
+            <div>
+                <label for="birth" id="birthday">Date Of Birth:</label>
+                <input id="birth" name="bday" type="date"onblur="validateField('birth')"/>
+            </div>
+            <div>
+                <label for="age" id="user_age">Age:</label>
+                <input id="age" name="age" type="text" onblur="validateAge()"/><span id="ageerror"></span>
+            </div>
+        </fieldset>
+        <legend>Shipping details</legend>
+        <fieldset>
+            <div>
+                <label for="b_no" id="building">Building No:</label>
+                <input id="b_no" name="building" type="tel" onblur="validateBuildingNo()"/><span id="berror"></span>
+            </div>
+            <div>
+                <label for="s_name" id="street">Street Name:</label>
+                <input id="s_name" name="streetname" placeholder="Street Name" onblur="validateField('s_name')"/>
+            </div>
+            <div>
+                <label for="city_name">Select your city:</label>
+                <select id="city_name" name="city">
+                    <option value="doha" selected>Doha</option>
+                    <option value="wakrah">Wakrah</option>
+                    <option value="al_khor">Al Khor</option>
+                    <option value="al_rayyan">Al Rayyan</option>
+                    <option value="al_shahaniya">Al Shahaniya</option>
+                    <option value="umm_salal">Umm Salal</option>
+                </select>
+            </div>
+            <div>
+                <label>Would you like to subscribe to our newsletter ?</label><input type="checkbox"  name='choice' id="agree"/>
+            </div>
+            <div id="buttons">
+                <div>
+                    <input type="submit" value="Submit"/>
+                </div>
+                <div>
+                    <input type="reset" value="Reset"/>
+                </div>
+            </div>
+            </fieldset>
+    </form>
+    <script>
+        function validateUser(){
+            let username=document.getElementById('uname')
+            let error=document.getElementById('usererror')
+            if (username.value.length < 3 || username.value.length > 12){
+                error.innerHTML = "Username should be in between 3 to 12 characters";
+                error.style.fontSize = "1.2rem";
+                username.style.border="3px red solid"
+                error.style.color = 'red'
+                return false;
+        } else{
+                error.innerHTML = "";
+                username.style.border=""
+                return true;
+        }
+            }
+            function validatePass(){
+            let passwd=document.getElementById('pass')
+            let error=document.getElementById('passerror')
+            if (passwd.value.length < 3 || passwd.value.length > 12){
+                error.innerHTML = "Password should be in between 3 to 12 characters";
+                error.style.fontSize = "1.2rem";
+                passwd.style.border="3px red solid"
+                error.style.color = 'red'
+                return false;
+        } else{
+                error.innerHTML = "";
+                passwd.style.border=""
+                return true;
+        }
+            }
+            function validatePassC(){
+            let passwd=document.getElementById('passconf') 
+            let error=document.getElementById('passcerror')
+            let toval=document.getElementById("pass")
+            if (passwd.value!=toval.value ){
+                error.innerHTML = "Passwords do not match";
+                error.style.fontSize = "1.2rem";
+                error.style.color = 'red'
+                passwd.style.border="3px red solid"
+                return false;
+         } else{
+                error.innerHTML = "";
+                passwd.style.border=""
+                return true;
+         
+            }}
+            function validateEmail(){
+            let email = document.getElementById('mail');
+            let emailError = document.getElementById('emailerror');
+            if (!email.value.includes('@')){
+                emailError.innerHTML = "Must include '@'";
+                emailError.style.fontSize = "1.2rem";
+                email.style.border="3px red solid"
+                emailError.style.color ='red';
+                return false;
+            } else{
+                emailError.innerHTML = "";
+                email.style.border=""
+                return true;
+            }}
+            function validateEmailC(){
+            let email = document.getElementById('mailc');
+            let emailError = document.getElementById('emailcerror');
+            if (email.value!=document.getElementById('mail').value){
+                emailError.innerHTML = "Emails do not match";
+                emailError.style.fontSize = "1.2rem";
+                email.style.border="3px red solid"
+                emailError.style.color ='red';
+                return false;
+            } else{
+                emailError.innerHTML = "";
+                email.style.border=""
+                return true;
+            }}
+            function validateAge(){
+            let age=document.getElementById('age')
+            let error=document.getElementById('ageerror')
+            if (age.value<1||age.value>99){
+                error.innerHTML = "Age should be between 1-99";
+                age.style.border = "3px red solid";
+                error.style.fontSize = "1.2rem";
+                error.style.color = 'red'
+                return false;
+        } else{
+                error.innerHTML = "";
+                age.style.border = "";
+                return true;
+            }}
+            function validateBuildingNo(){
+            let bno=document.getElementById('b_no')
+            let error=document.getElementById('berror')
+            if (isNaN(bno.value) || bno<1){
+                error.innerHTML = "Building Number should be a number or should not be negative";
+                bno.style.border = "3px red solid";
+                error.style.fontSize = "1.2rem";
+                error.style.color = 'red'
+                return false;
+        } else{
+                bno.style.border = "";
+                error.innerHTML = "";
+                return true;
+            }}
+            function validateField(FieldID){
+                let element = document.getElementById(FieldID);
+                if (element.value == ''){
+                    element.style.border = "3px red solid";
+                    return false;
+                } else{
+                    element.style.border = "";
+                    return true;
+                }}
+            function isNumber(){
+                let pno=document.getElementById('mobile')
+                let error=document.getElementById('merror')
+                if(isNaN(pno.value) ||pno.value>99999999||pno.value<0){
+                    pno.style.border="3px red solid"
+                    error.style.fontSize = "1.2rem";
+                    error.style.color = 'red'
+                    error.innerHTML='Should be 8 digits(or less) and only numbers'
+                    return false;
+        }       else{
+                    pno.style.border = "";
+                    error.innerHTML = "";
+                    error.fontSize="";
+                return true;
+            }
+            }
+            function validateForm(){
+                let NameValid = validateField('fname');
+                let UserValid = validateField('uname') && validateUser();
+                let PassValid = validateField('pass') && validatePass();
+                let PassConfirmValid = validateField('passconf') && validatePassC('passconf');
+                let EmailValid = validateField('mail') && validateEmail();
+                let EmailConfirmValid = validateField('mailc') && validateEmailC('mailc');
+                let PhoneValid = validateField('mobile');
+                let PhoneValid2 = validateField('mobilestart');
+                let DobValid = validateField('birth');
+                let AgeValid = validateField('age');
+                let BldgValid = validateField('b_no');
+                let StreetValid = validateField('s_name');
+                let validForm = false;
+                if (NameValid && UserValid && PassValid && PassConfirmValid && EmailValid && EmailConfirmValid && PhoneValid2 && PhoneValid && DobValid && AgeValid && BldgValid && StreetValid){
+                            validForm = true;
+                }
+                return validForm;
+}
+
+        
+    </script>
+</body>
+</html>

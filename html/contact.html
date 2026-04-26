@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../css/contact.css" rel="stylesheet">
+</head>
+<body>
+    <header>Pathstrider's Choice</header>
+    <nav>
+        <ul>
+            <a href="index.html"><li>Home</li></a>
+            <a href="products.html"><li>Products</li></a>
+            <a href="contact.html"><li>Contact Us</li></a>
+            <a href="subscribe.html"><li>Subscribe</li></a>
+            <a href="faq.html"><li>FAQ</li></a>
+        </ul>
+    </nav>
+    <section>
+        <div>
+            <p>Our Location</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.658630800959!2d51.51869005599385!3d25.28206650000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c53670cdaf2f%3A0xfb9a580ec8e95085!2s7GJC%2BR6G%2C%20Doha!5e0!3m2!1sen!2sqa!4v1732314211063!5m2!1sen!2sqa" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div>
+            <form onsubmit=" return validateForm()" action="https://sit.udst.edu.qa/processform.php" method="POST">
+                <legend>Contact Us Today!</legend>
+                <fieldset>
+                    <div class="form_div">
+                        <label for="fname" id="name">Full Name:</label>
+                        <input id="fname" name="full_name" placeholder="Your full name here" onblur="validateField('fname')"/>
+                    </div>
+                    <div class="form_div">
+                        <label for="enquiry">Ask us a Question: </label>
+                        <textarea id="enquiry" name="enquiry" onblur="validateField('enquiry')"></textarea>
+                    </div>
+                    <div>
+                        <input type="radio" name="method" value="phone" id="phone" onclick="validateContact();">
+                        <label for="method">Phone Call</label>
+                        <input type="radio" name="method" value="sms" id="sms" onclick="validateContact();">
+                        <label for="sms">SMS</label>
+                        <input type="radio" name="method" value="rad_mail" id="rad_mail" onclick="validateContact();">
+                        <label for="rad_mail">Email</label>
+                        <span id="contactError"></span>
+                    </div>
+                    <div class="form_div">
+                        <label for="mail" id="email">Email:</label>
+                        <input id="mail" name="mail" placeholder="Your mail here" onblur="validateEmail()"/> <span id="emailError"></span>
+                    </div> 
+                    <div id="buttons" class="form_div">
+                        <div>
+                            <input type="submit" value="Submit"/>
+                        </div>
+                        <div>
+                            <input type="reset" value="Reset"/>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    <script>
+         function validateEmail(){
+            let email = document.getElementById('mail');
+            let emailError = document.getElementById('emailError');
+            if (!email.value.includes('@')){
+                emailError.innerHTML = "Must include '@'";
+                emailError.style.fontSize = "1.2rem";
+                email.style.border="3px red solid"
+                emailError.style.color ='red';
+                return false;
+            } else{
+                emailError.innerHTML = "";
+                email.style.border=""
+                return true;
+            }}
+
+        function validateContact(){
+            let phoneElem = document.getElementById('phone');
+            let smsElem = document.getElementById('sms');
+            let mailElem = document.getElementById('rad_mail');
+            let contactError = document.getElementById('contactError');
+            if (phoneElem.checked || smsElem.checked || mailElem.checked){
+                contactError.innerHTML = ""
+                contactError.style.fontSize = ""
+                return true;
+            } else{
+                contactError.innerHTML = "Please select an option"
+                contactError.style.fontSize = "12px"
+                contactError.style.color = 'red';
+                return false;
+            }   
+        }
+
+        function validateForm(){
+            let NameValid = validateField('fname');
+            let RadioValid = validateContact()
+            let enqValid = validateField('enquiry');
+            let EmailValid = validateField('mail') && validateEmail();
+            let FormValid = false;
+            if (NameValid && enqValid && RadioValid && EmailValid){
+                FormValid = true;
+            }
+            return FormValid;
+        }
+        function validateField(FieldID){
+            let element = document.getElementById(FieldID);
+            if (element.value == ''){
+                element.style.border = "3px red solid";
+                return false;
+            } else{
+                element.style.backgroundColor = "";
+                element.style.border = "";
+                return true;
+            }
+
+        }
+    </script>
+</body>
+</html>
