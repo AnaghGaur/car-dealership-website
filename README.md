@@ -20,8 +20,8 @@ The subscription page includes comprehensive client-side JavaScript validation c
 - Real-time inline error messages on each field
 
 ## Technologies
-- HTML5
-- CSS3 (separate stylesheet per page)
+- HTML
+- CSS (separate stylesheet per page)
 - JavaScript (vanilla, no frameworks)
 
 ## Structure
