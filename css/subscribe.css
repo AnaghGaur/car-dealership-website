@@ -1,0 +1,101 @@
+html{
+    background-color: white;
+}
+body{
+    margin: auto;
+    width: 80%;
+    border: 2px solid wheat;
+    background-color: #89A8B2;
+    max-width: 1200px;
+    min-width: 800px;
+    max-height: 1200px;
+    min-height: 1000px;
+}
+header{
+    text-align: center;
+    font-size: 3rem;
+    background-color: #B3C8CF;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+    background-color: #B3C8CF;
+    padding: 2%;
+}
+
+a{
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
+
+li{
+    font-size: 1.5rem;
+}
+fieldset{
+    border-width: 0px;
+    background-color: #E5E1DA;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+legend{
+    background-color: grey;
+    color: white;
+    width: 20%;
+    margin-left: 20px;
+    border-radius: 15px;
+    padding:5px;
+    text-align: center;
+}
+
+div{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    column-gap: 20px;
+    margin: 2%;
+}
+
+input{
+    text-align: left;
+    width: 60%;
+    border-radius: 10px;
+}
+
+label{
+    text-align: right;
+    margin-right: 12px;
+}
+
+#city_name{
+    width: 63%;
+}
+
+#buttons{
+    display: block;
+    width: 50%;
+    margin: auto;
+    margin-left: 50%;
+}
+
+#buttons input{
+    border-radius: 0px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+#phoneno{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    text-align: right;
+}
+
+#mobilestart{
+    width: 40%;
+}

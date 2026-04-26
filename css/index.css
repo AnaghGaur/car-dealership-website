@@ -1,0 +1,105 @@
+html{
+    background-color: white;
+}
+body{
+    margin: auto;
+    width: 80%;
+    border: 2px solid wheat;
+    background-color: #89A8B2;
+    max-width: 1200px;
+    min-width: 800px;
+    max-height: 1200px;
+    min-height: 1000px;
+}
+header{
+    text-align: center;
+    font-size: 3rem;
+    background-color: #B3C8CF;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+    background-color: #B3C8CF;
+    padding: 2%;
+}
+
+a{
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
+
+li{
+    font-size: 1.5rem;
+}
+
+section p{
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    color:black;
+    background-color: #B3C8CF;
+    border: 2px dashed white;
+    padding: 12px;
+    margin-bottom: 5px;
+    
+}
+
+div{
+    display: flex;
+    justify-content: space-between;
+    background-color: #E5E1DA;
+    width: 98%;
+    margin-top: 10px;
+    margin: auto;
+    height: 95%;
+    border-radius: 14px;
+    min-height: 700px;
+}
+
+img{
+    width: 100%;
+    height: 150px;
+    border: 2px solid black;
+    background-color: white;
+    text-align: center;
+}
+
+#imgside p{
+    text-align: center;
+}
+
+aside{
+    width: 30%;
+}
+
+.Review{
+    border: 2px dashed white;
+    background-color: #B3C8CF;
+    padding: 2%;
+    margin-top: 25px;
+    margin-left: 20px;
+    font-size: 1.1rem;
+}
+
+.title{
+    background-color: grey;
+    color: white;
+    margin: auto;
+    border-radius: 15px;
+    padding:1%;
+    text-align: center;
+}
+
+#why{
+    border: 2px dashed white;
+    background-color: #B3C8CF;
+    padding: 2%;
+    margin-top: 35px;
+    margin-right: 20px;
+    font-size: 1.1rem;
+}
